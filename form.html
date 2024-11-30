@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опитування</title>
+</head>
+<body style="text-align: center;">
+<header style="text-align: left;">
+        <nav>
+            <ul class="nav" >
+            <t><a href="index.html">На головну</a></t>
+            <t><a href="acoustic.html">Акустчині<a></t>
+            <t><a href="electro.html">Електро</a> </t>
+            </ul>
+         </nav>
+</header>
+<hr size="5" style="background-color: rgb(173, 173, 173);">
+<h1>Заповніть опитування</h1>
+    <form id="surveyForm">
+        <label for="name">Ім'я:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="question1">Яка ваша улюбленна форма гітари?</label><br>
+        <input type="text" id="question1" name="question1" required><br><br>
+
+        <label for="question2">Який ваш Улюбленний гурт?</label><br>
+        <input type="text" id="question2" name="question2" required><br><br>
+
+        <label for="question3">Як ви взнали про цей сайт?</label><br>
+        <input type="text" id="question3" name="question3" required><br><br>
+
+        <button type="button" id="submitBtn">Надіслати</button>
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        // Додаємо обробник на кнопку
+        document.getElementById('submitBtn').addEventListener('click', function () {
+            // Отримуємо дані з форми
+            const form = document.getElementById('surveyForm');
+            const formData = new FormData(form);
+
+            // Створюємо новий XMLHttpRequest
+            const xhr = new XMLHttpRequest();
+
+            // Вказуємо метод і URL, куди відправляти запит
+            xhr.open('POST', 'save_results.php', true);
+
+            // Реєструємо обробник для отримання відповіді
+            xhr.onload = function () {
+                const responseMessage = document.getElementById('responseMessage');
+
+                if (xhr.status === 200) {
+                    // Якщо відповідь успішна
+                    responseMessage.innerHTML = xhr.responseText;
+                    responseMessage.style.color = "green";
+                    form.reset(); // Очищуємо форму після успішного надсилання
+                } else {
+                    // Якщо сталася помилка
+                    responseMessage.innerHTML = "Сталася помилка. Спробуйте ще раз.";
+                    responseMessage.style.color = "red";
+                }
+            };
+
+            // Надсилаємо дані на сервер
+            xhr.send(formData);
+        });
+    </script>
+</body>
+</html>

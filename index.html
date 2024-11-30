@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Guitar Info</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class=".body">
+    <header>
+        <nav>
+            <ul class="nav" >
+            <t><a href="index.html">На головну</a></t>
+            <t><a href="acoustic.html">Акустчині<a></t>
+            <t><a href="electro.html">Електро</a> </t>
+            <t><a href="form.html">Перейти до опитування</a></t>
+            <t><a href="jokes.html">Натискай якщо сумно</a></t>
+            </ul>
+            <button class="theme-toggle-btn" onclick="toggleTheme()">Змінити тему</button>
+
+            <script>
+                function toggleTheme() {
+                    document.body.classList.toggle('dark-theme');
+                    document.header.classList.toggle('dark-theme');
+                }
+            </script>
+       
+        </nav>
+    </header>
+        <hr size="5" style="background-color: rgb(173, 173, 173);">
+        
+        <h1>Головна</h1>
+        
+        <t>
+            <strong>Гітара</strong> є одним з найпопулярніших музичних інтрументів у світі та з кожним днем 
+            зявляється багато бажаючих почати грати на цьому інструменті цей сайт допоможе обрати як і першу 
+            так і остнаню гітару незважаючи на ваш рівень гри. 
+        </t>
+        <p>На цьому сайті можна знайти корисну інформацію про різні види гітар та нетільки.</p>
+        <h2><strong>Найзагалніша класифікація гітар це:</strong></h2>
+        <ol>
+            <li class="nav"><h2><a style="color: brown;"href="acoustic.html">Акустичні</h2></a></li>
+            <li class="nav"><h2><a style="color: rgba(0, 213, 255, 0.986);"href="electro.html">Електро</h2></a></li>
+        </ol>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAygZdKiH6Ou3dMRhIVuLJIZQRzgJxJVJb_F2bxKQVyz2AsXOQolAy8g8Vri7zYEo7zkY&usqp=CAU"  
+        width="350" height="350" class="r"><br/>
+    
+        <button class="s" id="scrollToTopBtn" onclick="scrollToTop()">Вгору</button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+       
+        window.onscroll = function() {
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.style.display = "block"; 
+            } else {
+                scrollToTopBtn.style.display = "none"; 
+            }
+        };
+    </script>
+
+        <footer><p>danyagogof™</p><p>1КН-24Б</p><footer>
+    </body>
+</html>
